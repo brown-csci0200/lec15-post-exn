@@ -1,3 +1,5 @@
+package src;
+
 public class CustNotFoundExn extends Exception {
     public String custname;
 
