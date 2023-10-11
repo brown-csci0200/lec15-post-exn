@@ -18,24 +18,26 @@ public class BankingConsole {
 
     public void loginScreen() {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Welcome to the Bank.  Please log in.");
-        System.out.print("Enter your username: ");
-        String username = keyboard.next();
-        System.out.print("Enter your password: ");
-        String password = keyboard.next();
-        try {
-            controller.login(username, password);
-            System.out.println("Thanks for logging in");
-        } catch (CustNotFoundExn e) {
-            System.out.println("No such user " + e.custname);
-            loginScreen();
-        } catch (LoginFailedExn e) {
-            System.out.println("Password mismatch for " + e.custname);
-            loginScreen();
+
+        boolean loggedIn = false;
+        while (!loggedIn) {
+            System.out.println("Welcome to the Bank.  Please log in.");
+            System.out.print("Enter your username: ");
+            String username = keyboard.next();
+            System.out.print("Enter your password: ");
+            String password = keyboard.next();
+            try {
+                loggedIn = controller.login(username, password);
+                System.out.println("Thanks for logging in");
+            } catch (CustNotFoundExn e) {
+                System.out.println("No such user " + e.custname);
+            } catch (LoginFailedExn e) {
+                System.out.println("Password mismatch for " + e.custname);
             /* ALTERNATIVE that would replace both catches
-        } catch (CustNotFoundExn|LoginFailedExn e) {
-            System.out.println("Login Error: please try again");
+            } catch (CustNotFoundExn|LoginFailedExn e) {
+                System.out.println("Login Error: please try again");
              */
+            }
         }
     }
 }
