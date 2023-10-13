@@ -1,5 +1,6 @@
 package src;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Customer {
     private String name;
@@ -22,4 +23,6 @@ public class Customer {
     public void addAccount(Account newAcct) {
         this.accounts.addFirst(newAcct);
     }
+
+
 }

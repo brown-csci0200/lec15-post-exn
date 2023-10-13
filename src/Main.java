@@ -1,5 +1,7 @@
 package src;
 
+import java.util.HashMap;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,5 +20,30 @@ public class Main {
         view.showBalance(kAcctNum);
         view.withdraw(kAcctNum, 30);
         view.showBalance(kAcctNum);
+    }
+
+
+    public void hashMapExample() {
+        // Map lab times to room numbers
+        HashMap<String, String> labRooms = new HashMap<String, String>();
+
+        // Associate this key with this value
+        labRooms.put("Mon 4-6", "CIT219");
+        labRooms.put("Tue 6-8", "CIT501");
+
+        labRooms.get("Mon 4-6"); // Returns "CIT219"
+
+        // Changes the value mapped to this key
+        labRooms.put("Mon 4-6", "CIT444");  //
+        labRooms.get("Mon 4-6");
+
+        labRooms.get("Wed 8-10"); //
+
+        if(labRooms.containsKey("Mon 4-6")) {
+            // . . .
+        }
+
+
+
     }
 }
